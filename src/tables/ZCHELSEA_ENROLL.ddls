@@ -1,0 +1,18 @@
+@EndUserText.label : 'Student Course Enrollment'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zchelsea_enroll {
+
+  key client            : abap.clnt not null;
+  key enrollment_id     : abap.char(10) not null;
+  student_id            : abap.char(10);
+  course_id             : abap.char(10);
+  enrollment_date       : abap.dats;
+  status                : abap.char(10);
+  created_at            : abp_creation_tstmpl;
+  last_changed_at       : abp_lastchange_tstmpl;
+  local_last_changed_at : abp_locinst_lastchange_tstmpl;
+
+}
