@@ -1,0 +1,18 @@
+@EndUserText.label : 'Course Master Data'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zchelsea_course {
+
+  key client            : abap.clnt not null;
+  key course_id         : abap.char(10) not null;
+  course_name           : abap.char(50);
+  department            : abap.char(30);
+  duration              : abap.int2;
+  max_marks             : abap.int4;
+  created_at            : abp_creation_tstmpl;
+  last_changed_at       : abp_lastchange_tstmpl;
+  local_last_changed_at : abp_locinst_lastchange_tstmpl;
+
+}
