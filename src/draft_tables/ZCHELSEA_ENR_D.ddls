@@ -1,0 +1,20 @@
+
+@EndUserText.label : 'Draft table for entity ZI_CHELSEA_ENROLL'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_ANY
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zchelsea_enr_d {
+
+  key mandt          : mandt not null;
+  key enrollment_id  : abap.char(10) not null;
+  student_id         : abap.char(10);
+  course_id          : abap.char(10);
+  enrollment_date    : abap.dats;
+  status             : abap.char(10);
+  createdat          : abp_creation_tstmpl;
+  lastchangedat      : abp_lastchange_tstmpl;
+  locallastchangedat : abp_locinst_lastchange_tstmpl;
+  "%admin"           : include sych_bdl_draft_admin_inc;
+
+}
