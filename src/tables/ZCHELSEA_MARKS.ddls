@@ -1,0 +1,20 @@
+
+@EndUserText.label : 'Student Examination Marks'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zchelsea_marks {
+
+  key client            : abap.clnt not null;
+  key marks_id          : abap.char(10) not null;
+  enrollment_id         : abap.char(10);
+  subject_name          : abap.char(40);
+  max_marks             : abap.int4;
+  marks_obtained        : abap.int4;
+  exam_date             : abap.dats;
+  created_at            : abp_creation_tstmpl;
+  last_changed_at       : abp_lastchange_tstmpl;
+  local_last_changed_at : abp_locinst_lastchange_tstmpl;
+
+}
