@@ -1,0 +1,25 @@
+
+@EndUserText.label : 'Draft table for entity ZI_CHELSEA_STUDENT'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_ANY
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zchelsea_stu_d {
+
+  key mandt          : mandt not null;
+  key student_id     : abap.char(10) not null;
+  first_name         : abap.char(30);
+  last_name          : abap.char(30);
+  date_of_birth      : abap.dats;
+  gender             : abap.char(10);
+  email              : abap.char(100);
+  phone              : abap.char(15);
+  department         : abap.char(30);
+  admission_date     : abap.dats;
+  status             : abap.char(10);
+  createdat          : abp_creation_tstmpl;
+  lastchangedat      : abp_lastchange_tstmpl;
+  locallastchangedat : abp_locinst_lastchange_tstmpl;
+  "%admin"           : include sych_bdl_draft_admin_inc;
+
+}
