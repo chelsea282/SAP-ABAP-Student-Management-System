@@ -1,0 +1,23 @@
+
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Marks Interface View'
+
+define root view entity ZI_CHELSEA_MARKS
+  as select from zchelsea_marks
+{
+  key marks_id,
+      enrollment_id,
+      subject_name,
+      max_marks,
+      marks_obtained,
+      exam_date,
+
+      @Semantics.systemDateTime.createdAt: true
+      created_at as CreatedAt,
+
+      @Semantics.systemDateTime.lastChangedAt: true
+      last_changed_at as LastChangedAt,
+
+      @Semantics.systemDateTime.localInstanceLastChangedAt: true
+      local_last_changed_at as LocalLastChangedAt
+}
