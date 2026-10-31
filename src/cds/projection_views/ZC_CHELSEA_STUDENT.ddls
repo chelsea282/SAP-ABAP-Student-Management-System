@@ -1,0 +1,20 @@
+
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Student Projection View'
+@Metadata.allowExtensions: true
+
+define root view entity ZC_CHELSEA_STUDENT
+  provider contract transactional_query
+  as projection on ZI_CHELSEA_STUDENT
+{
+  key student_id,
+      first_name,
+      last_name,
+      date_of_birth,
+      gender,
+      email,
+      phone,
+      department,
+      admission_date,
+      status
+}
