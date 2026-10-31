@@ -1,0 +1,49 @@
+
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Student Result Interface View'
+
+define view entity ZI_CHELSEA_RESULT
+  as select from zchelsea_marks
+{
+  key enrollment_id as EnrollmentId,
+
+      sum( marks_obtained ) as TotalMarks,
+
+      sum( max_marks ) as MaximumMarks,
+
+      count( * ) as SubjectCount,
+
+      case
+        when sum( max_marks ) > 0
+        then
+          division(
+            cast( sum( marks_obtained ) as abap.dec(15,2) )
+            * 100,
+            cast( sum( max_marks ) as abap.dec(15,2) ),
+            2
+          )
+        else
+          cast( 0 as abap.dec(15,2) )
+      end as Percentage,
+
+      case
+        when sum( max_marks ) <= 0
+          then 'INVALID'
+
+        when sum(
+          case
+            when max_marks <= 0
+              or marks_obtained < 0
+              or marks_obtained > max_marks
+              or marks_obtained * 100 < max_marks * 35
+            then 1
+            else 0
+          end
+        ) > 0
+          then 'FAIL'
+
+        else 'PASS'
+      end as ResultStatus
+
+}
+group by enrollment_id
