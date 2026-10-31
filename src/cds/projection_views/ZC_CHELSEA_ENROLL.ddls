@@ -1,0 +1,19 @@
+
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Enrollment Projection View'
+@Metadata.allowExtensions: true
+@Metadata.ignorePropagatedAnnotations: true
+
+define root view entity ZC_CHELSEA_ENROLL
+  provider contract transactional_query
+  as projection on ZI_CHELSEA_ENROLL
+{
+  key enrollment_id,
+      student_id,
+      course_id,
+      enrollment_date,
+      status,
+      CreatedAt,
+      LastChangedAt,
+      LocalLastChangedAt
+}
