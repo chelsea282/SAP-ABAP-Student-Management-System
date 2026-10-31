@@ -1,0 +1,40 @@
+
+managed implementation in class zbp_i_chelsea_course unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_CHELSEA_COURSE
+persistent table zchelsea_course
+draft table zchelsea_crs_d
+lock master total etag LastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete ( precheck );
+
+  field ( readonly : update ) course_id;
+
+  field ( readonly ) CreatedAt,
+                     LastChangedAt,
+                     LocalLastChangedAt;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for zchelsea_course
+  {
+    course_id          = course_id;
+    course_name        = course_name;
+    department         = department;
+    duration           = duration;
+    max_marks          = max_marks;
+    CreatedAt          = created_at;
+    LastChangedAt      = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}
