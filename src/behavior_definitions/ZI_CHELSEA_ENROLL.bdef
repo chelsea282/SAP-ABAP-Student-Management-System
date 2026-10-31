@@ -1,0 +1,45 @@
+
+managed implementation in class zbp_i_chelsea_enroll unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_CHELSEA_ENROLL
+persistent table zchelsea_enroll
+draft table zchelsea_enr_d
+lock master total etag LastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete ( precheck );
+
+  validation validateStudentCourse
+    on save { create; update; field student_id, course_id; }
+
+  field ( mandatory ) student_id, course_id;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  field ( readonly : update ) enrollment_id;
+
+  field ( readonly ) CreatedAt,
+                     LastChangedAt,
+                     LocalLastChangedAt;
+
+  mapping for zchelsea_enroll
+  {
+    enrollment_id      = enrollment_id;
+    student_id         = student_id;
+    course_id          = course_id;
+    enrollment_date    = enrollment_date;
+    status             = status;
+    CreatedAt          = created_at;
+    LastChangedAt      = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}
