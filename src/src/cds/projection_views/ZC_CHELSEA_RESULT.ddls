@@ -1,0 +1,16 @@
+
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Student Result Display View'
+@Metadata.allowExtensions: true
+@Metadata.ignorePropagatedAnnotations: true
+
+define view entity ZC_CHELSEA_RESULT
+  as select from ZI_CHELSEA_RESULT
+{
+  key EnrollmentId,
+      TotalMarks,
+      MaximumMarks,
+      SubjectCount,
+      Percentage,
+      ResultStatus
+}
