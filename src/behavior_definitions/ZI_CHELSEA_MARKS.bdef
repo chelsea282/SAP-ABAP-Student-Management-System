@@ -1,0 +1,57 @@
+
+managed implementation in class zbp_i_chelsea_marks unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_CHELSEA_MARKS
+persistent table zchelsea_marks
+draft table zchelsea_mrk_d
+lock master total etag LastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete;
+
+  validation validateEnrollment
+    on save { create; update; field enrollment_id; }
+
+  validation validateMarksRange
+    on save { create; update; field max_marks, marks_obtained; }
+
+  validation validateDuplicateSubject
+    on save { create; update; field enrollment_id, subject_name; }
+
+  field ( mandatory ) enrollment_id;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+
+  draft determine action Prepare {
+    validation validateEnrollment;
+    validation validateMarksRange;
+    validation validateDuplicateSubject;
+  }
+
+  field ( readonly : update ) marks_id;
+
+  field ( readonly ) CreatedAt,
+                     LastChangedAt,
+                     LocalLastChangedAt;
+
+  mapping for zchelsea_marks
+  {
+    marks_id           = marks_id;
+    enrollment_id      = enrollment_id;
+    subject_name       = subject_name;
+    max_marks          = max_marks;
+    marks_obtained     = marks_obtained;
+    exam_date          = exam_date;
+    CreatedAt          = created_at;
+    LastChangedAt      = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}
