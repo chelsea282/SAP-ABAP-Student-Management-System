@@ -1,0 +1,45 @@
+
+managed implementation in class zbp_i_chelsea_student unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_CHELSEA_STUDENT
+persistent table zchelsea_stu
+draft table zchelsea_stu_d
+lock master total etag LastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete ( precheck );
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  field ( readonly : update ) student_id;
+
+  field ( readonly ) CreatedAt,
+                     LastChangedAt,
+                     LocalLastChangedAt;
+
+  mapping for zchelsea_stu
+  {
+    student_id         = student_id;
+    first_name         = first_name;
+    last_name          = last_name;
+    date_of_birth      = date_of_birth;
+    gender             = gender;
+    email              = email;
+    phone              = phone;
+    department         = department;
+    admission_date     = admission_date;
+    status             = status;
+    CreatedAt          = created_at;
+    LastChangedAt      = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}
