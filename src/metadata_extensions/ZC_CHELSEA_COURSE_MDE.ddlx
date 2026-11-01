@@ -1,0 +1,50 @@
+
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+  typeName: 'Course',
+  typeNamePlural: 'Courses',
+  title: {
+    type: #STANDARD,
+    value: 'course_name'
+  }
+}
+
+annotate entity ZC_CHELSEA_COURSE with
+{
+  @UI.facet: [
+    {
+      id: 'CourseDetails',
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Course Details',
+      position: 10
+    }
+  ]
+
+  @EndUserText.label: 'Course ID'
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  @UI.selectionField: [{ position: 10 }]
+  course_id;
+
+  @EndUserText.label: 'Course Name'
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  @UI.selectionField: [{ position: 20 }]
+  course_name;
+
+  @EndUserText.label: 'Department'
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  @UI.selectionField: [{ position: 30 }]
+  department;
+
+  @EndUserText.label: 'Duration'
+  @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 40 }]
+  duration;
+
+  @EndUserText.label: 'Maximum Marks'
+  @UI.lineItem: [{ position: 50 }]
+  @UI.identification: [{ position: 50 }]
+  max_marks;
+}
