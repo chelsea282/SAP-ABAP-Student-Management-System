@@ -1,0 +1,71 @@
+
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+  typeName: 'Student',
+  typeNamePlural: 'Students',
+  title: { type: #STANDARD, value: 'first_name' }
+}
+
+annotate entity ZC_CHELSEA_STUDENT with
+{
+  @UI.facet: [
+    {
+      id: 'StudentDetails',
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Student Information',
+      position: 10
+    }
+  ]
+
+  @EndUserText.label: 'Student ID'
+  @UI.lineItem: [{ position: 10, label: 'Student ID' }]
+  @UI.identification: [{ position: 10, label: 'Student ID' }]
+  @UI.selectionField: [{ position: 10 }]
+  student_id;
+
+  @EndUserText.label: 'First Name'
+  @UI.lineItem: [{ position: 20, label: 'First Name' }]
+  @UI.identification: [{ position: 20, label: 'First Name' }]
+  @UI.selectionField: [{ position: 20 }]
+  first_name;
+
+  @EndUserText.label: 'Last Name'
+  @UI.lineItem: [{ position: 30, label: 'Last Name' }]
+  @UI.identification: [{ position: 30, label: 'Last Name' }]
+  @UI.selectionField: [{ position: 30 }]
+  last_name;
+
+  @EndUserText.label: 'Department'
+  @UI.lineItem: [{ position: 40, label: 'Department' }]
+  @UI.identification: [{ position: 40, label: 'Department' }]
+  @UI.selectionField: [{ position: 20 }]
+  department;
+
+  @EndUserText.label: 'Email'
+  @UI.lineItem: [{ position: 50, label: 'Email' }]
+  @UI.identification: [{ position: 50, label: 'Email' }]
+  email;
+
+  @EndUserText.label: 'Phone'
+  @UI.lineItem: [{ position: 60, label: 'Phone' }]
+  @UI.identification: [{ position: 60, label: 'Phone' }]
+  phone;
+
+  @EndUserText.label: 'Status'
+  @UI.lineItem: [{ position: 70, label: 'Status' }]
+  @UI.identification: [{ position: 70, label: 'Status' }]
+  @UI.selectionField: [{ position: 30 }]
+  status;
+
+  @EndUserText.label: 'Date_Of Birth'
+  @UI.identification: [{ position: 80, label: 'Date Of Birth' }]
+  date_of_birth;
+
+  @EndUserText.label: 'Gender'
+  @UI.identification: [{ position: 90, label: 'Gender' }]
+  gender;
+
+  @EndUserText.label: 'Admission Date'
+  @UI.identification: [{ position: 100, label: 'Admission Date' }]
+  admission_date;
+}
