@@ -1,0 +1,54 @@
+
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+  typeName: 'Student Result',
+  typeNamePlural: 'Student Results',
+  title: {
+    type: #STANDARD,
+    value: 'EnrollmentId'
+  }
+}
+
+annotate entity ZC_CHELSEA_RESULT with
+{
+  @UI.facet: [
+    {
+      id: 'ResultDetails',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Result Details',
+      position: 10
+    }
+  ]
+
+  @EndUserText.label: 'Enrollment ID'
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  @UI.selectionField: [{ position: 10 }]
+  EnrollmentId;
+
+  @EndUserText.label: 'Total Marks'
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  TotalMarks;
+
+  @EndUserText.label: 'Maximum Marks'
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  MaximumMarks;
+
+  @EndUserText.label: 'Subject Count'
+  @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 40 }]
+  SubjectCount;
+
+  @EndUserText.label: 'Percentage'
+  @UI.lineItem: [{ position: 50 }]
+  @UI.identification: [{ position: 50 }]
+  Percentage;
+
+  @EndUserText.label: 'Result Status'
+  @UI.lineItem: [{ position: 60 }]
+  @UI.identification: [{ position: 60 }]
+  ResultStatus;
+}
