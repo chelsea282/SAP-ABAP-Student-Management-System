@@ -1,0 +1,9 @@
+
+@EndUserText.label: 'Student RAP Transactional Service'
+define service ZCHELSEA_STUDENT_RAP_SRV {
+  expose ZC_CHELSEA_STUDENT as Students;
+  expose ZC_CHELSEA_COURSE  as Courses;
+  expose ZC_CHELSEA_ENROLL  as Enrollments;
+  expose ZC_CHELSEA_MARKS   as Marks;
+  expose ZC_CHELSEA_RESULT  as Results;
+}
