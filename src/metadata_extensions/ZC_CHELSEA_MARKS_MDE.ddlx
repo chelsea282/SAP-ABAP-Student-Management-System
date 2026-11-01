@@ -1,0 +1,56 @@
+
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+  typeName: 'Marks Record',
+  typeNamePlural: 'Marks Records',
+  title: {
+    type: #STANDARD,
+    value: 'marks_id'
+  }
+}
+
+annotate entity ZC_CHELSEA_MARKS with
+{
+  @UI.facet: [
+    {
+      id: 'MarksDetails',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Marks Details',
+      position: 10
+    }
+  ]
+
+  @EndUserText.label: 'Marks ID'
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  @UI.selectionField: [{ position: 10 }]
+  marks_id;
+
+  @EndUserText.label: 'Enrollment ID'
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  @UI.selectionField: [{ position: 20 }]
+  enrollment_id;
+
+  @EndUserText.label: 'Subject Name'
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  @UI.selectionField: [{ position: 30 }]
+  subject_name;
+
+  @EndUserText.label: 'Maximum Marks'
+  @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 40 }]
+  max_marks;
+
+  @EndUserText.label: 'Marks Obtained'
+  @UI.lineItem: [{ position: 50 }]
+  @UI.identification: [{ position: 50 }]
+  marks_obtained;
+
+  @EndUserText.label: 'Exam Date'
+  @UI.lineItem: [{ position: 60 }]
+  @UI.identification: [{ position: 60 }]
+  exam_date;
+}
