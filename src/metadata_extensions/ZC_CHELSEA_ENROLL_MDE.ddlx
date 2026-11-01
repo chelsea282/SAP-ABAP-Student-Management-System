@@ -1,0 +1,52 @@
+
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+  typeName: 'Enrollment',
+  typeNamePlural: 'Enrollments',
+  title: {
+    type: #STANDARD,
+    value: 'enrollment_id'
+  }
+}
+
+annotate entity ZC_CHELSEA_ENROLL with
+{
+  @UI.facet: [
+    {
+      id: 'EnrollmentDetails',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Enrollment Details',
+      position: 10
+    }
+  ]
+
+  @EndUserText.label: 'Enrollment ID'
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  @UI.selectionField: [{ position: 10 }]
+  enrollment_id;
+
+  @EndUserText.label: 'Student ID'
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  @UI.selectionField: [{ position: 20 }]
+  student_id;
+
+  @EndUserText.label: 'Course ID'
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  @UI.selectionField: [{ position: 30 }]
+  course_id;
+
+  @EndUserText.label: 'Enrollment Date'
+  @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 40 }]
+  enrollment_date;
+
+  @EndUserText.label: 'Status'
+  @UI.lineItem: [{ position: 50 }]
+  @UI.identification: [{ position: 50 }]
+  @UI.selectionField: [{ position: 40 }]
+  status;
+}
